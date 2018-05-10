@@ -18,6 +18,16 @@ namespace Aula1005_Console
             string cpfCliente = cliente.Cpf; //Get
 
             Console.WriteLine(nomeCliente);
+            Console.WriteLine(cpfCliente);
+
+            Cliente cliente2 = new Cliente("Ketlen", "112.531.739-66");
+            Cliente cliente3 = new Cliente("Ricardo");
+
+            Console.WriteLine(cliente2.Nome + " " + cliente2.Cpf);
+            Console.WriteLine(cliente3.Nome + " " + cliente3.Cpf);
+
+
+            Console.ReadKey(); //Comando para pausar
         }
     }
 }
