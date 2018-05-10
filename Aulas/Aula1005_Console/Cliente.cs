@@ -8,18 +8,35 @@ namespace Aula1005_Console
 {
     class Cliente : Pessoa
     {
-        public Cliente()
+        public DateTime DataNascimento { get; set; }
+
+        public string DataQueNasce
         {
+            get
+            {
+                return DataNascimento.ToShortDateString();
+            }
+        }
+
+        public int Idade
+        {
+            get
+            {
+                DateTime hoje = DateTime.Today;
+               int idade = hoje.Year - DataNascimento.Year;
+                return idade;
+                //return DateTime.Today.Year - DataNascimento.Year;
+            }
+        }
+
+        public Cliente() {
 
         }
 
-        public Cliente(string nome) : base(nome)
-        {
-       
+        public Cliente(string nome) : base(nome) {
         }
 
-        public Cliente(string nome, string cpf) : base(nome,cpf)
-        {
+        public Cliente(string nome, string cpf) : base(nome,cpf) {
 
         }
     }
