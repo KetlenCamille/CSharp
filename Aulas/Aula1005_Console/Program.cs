@@ -20,6 +20,7 @@ namespace Aula1005_Console
             Console.WriteLine(nomeCliente);
             Console.WriteLine(cpfCliente);
 
+            //Utilizando os contrutores parametrizados
             Cliente cliente2 = new Cliente("Ketlen", "112.531.739-66");
             Cliente cliente3 = new Cliente("Ricardo");
 
