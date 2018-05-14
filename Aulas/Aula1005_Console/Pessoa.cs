@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aula1005_Console
 {
-    class Pessoa
+    public abstract class Pessoa
     {
         //Atributo
         private string nome;
@@ -44,6 +44,7 @@ namespace Aula1005_Console
         {
 
         }
+        public abstract string imprimirInfo();
 
     }
 }

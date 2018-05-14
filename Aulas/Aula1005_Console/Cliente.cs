@@ -39,5 +39,10 @@ namespace Aula1005_Console
         public Cliente(string nome, string cpf) : base(nome,cpf) {
 
         }
+        override
+            public string imprimirInfo()
+        {
+            return nome + ", " + cpf + ", " + DataNascimento.ToShortDateString() + ", " + Idade;
+        }
     }
 }

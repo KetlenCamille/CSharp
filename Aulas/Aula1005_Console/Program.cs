@@ -22,12 +22,16 @@ namespace Aula1005_Console
 
             //Utilizando os contrutores parametrizados
             Cliente cliente2 = new Cliente("Ketlen", "112.531.739-66");
-            Cliente cliente3 = new Cliente("Ricardo");
+            Cliente cliente3 = new Cliente("Juliana");
             cliente3.DataNascimento = new DateTime(1950,05,17);
             Console.WriteLine(cliente3.Nome + " nasceu em " + cliente3.DataNascimento);
             Console.WriteLine(cliente2.Nome + " " + cliente2.Cpf);
             Console.WriteLine(cliente3.Nome + " " + cliente3.Cpf);
             Console.WriteLine(cliente3.Nome +" tem "+ cliente3.Idade + " anos!");
+
+            Pessoa pessoaCliente = new Cliente(); //encapsulamento
+            Cliente cliente4 = (Cliente)pessoaCliente; //cast
+            Console.WriteLine("Dados cliente3:" + cliente3.imprimirInfo);
 
 
             Console.ReadKey(); //Comando para pausar
