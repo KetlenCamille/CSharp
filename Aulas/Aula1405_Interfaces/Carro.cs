@@ -9,6 +9,13 @@ namespace Aula1405_Interfaces
     class Carro : IMeioTransporte
     {
         public int Velocidade { get; set; }
+
+        //Chave para objeto Marca
+        public int idMarca { get; set; }
+
+        //Propriedade de navegação
+        public virtual Marca _Marca { get; set; }
+
         public Carro()
         {
             Velocidade = 0;
@@ -25,7 +32,7 @@ namespace Aula1405_Interfaces
 
         public string ImprimirInfo()
         {
-            return "Carro - velocidade atual - : " + Velocidade;
+            return "Carro (velocidade atual): " + Velocidade;
         }
     }
 }
