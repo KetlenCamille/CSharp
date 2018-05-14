@@ -8,6 +8,8 @@ namespace Aula1405_Interfaces
 {
     interface IMeioTransporte
     {
+        string Modelo();
+
         void Acelerar();
 
         void Desacelerar();

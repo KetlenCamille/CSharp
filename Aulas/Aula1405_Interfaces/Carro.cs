@@ -10,6 +10,8 @@ namespace Aula1405_Interfaces
     {
         public int Velocidade { get; set; }
 
+        public string Modelo { get; set; }
+
         //Chave para objeto Marca
         public int idMarca { get; set; }
 
@@ -33,6 +35,11 @@ namespace Aula1405_Interfaces
         public string ImprimirInfo()
         {
             return "Carro (velocidade atual): " + Velocidade;
+        }
+
+        string IMeioTransporte.Modelo()
+        {
+            throw new NotImplementedException();
         }
     }
 }
