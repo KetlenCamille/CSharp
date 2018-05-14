@@ -20,7 +20,12 @@ namespace Aula1405_Interfaces
 
         public void Desacelerar()
         {
-            Velocidade -= 5;
+                Velocidade -= 5;
+        }
+
+        public string ImprimirInfo()
+        {
+            return "Carro - velocidade atual - : " + Velocidade;
         }
     }
 }

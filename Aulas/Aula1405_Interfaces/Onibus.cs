@@ -14,7 +14,6 @@ namespace Aula1405_Interfaces
             Velocidade = 0;
         }
 
-
         public void Acelerar()
         {
              Velocidade += 7; 
@@ -23,6 +22,11 @@ namespace Aula1405_Interfaces
         public void Desacelerar()
         {
             Velocidade -= 4;
+        }
+
+        public string ImprimirInfo()
+        {
+            return "Ônibus - velocidade atual - :" + Velocidade;
         }
     }
 }

@@ -11,5 +11,8 @@ namespace Aula1405_Interfaces
         void Acelerar();
 
         void Desacelerar();
+
+        string ImprimirInfo();
+
     }
 }
