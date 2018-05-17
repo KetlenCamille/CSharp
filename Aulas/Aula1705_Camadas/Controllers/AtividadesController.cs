@@ -11,7 +11,7 @@ namespace Aula1705_Camadas.Controllers
     {
         private static List<Atividade> ListaAtividades { get; set; }
 
-        public AtividadesController()
+        static AtividadesController()
         {
             ListaAtividades = new List<Atividade>();
         }
@@ -63,5 +63,6 @@ namespace Aula1705_Camadas.Controllers
                 ListaAtividades.Remove(atividade);
             }
         }
+
     }
 }
