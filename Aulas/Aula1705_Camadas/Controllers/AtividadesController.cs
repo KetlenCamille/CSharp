@@ -19,6 +19,7 @@ namespace Aula1705_Camadas.Controllers
         //Salvar
         public void salvarAtividade(Atividade atividade)
         {
+            atividade.AtividadeID = ListaAtividades.Count + 1;
             ListaAtividades.Add(atividade);
         }
 
@@ -63,6 +64,5 @@ namespace Aula1705_Camadas.Controllers
                 ListaAtividades.Remove(atividade);
             }
         }
-
     }
 }
