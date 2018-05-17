@@ -9,8 +9,13 @@ namespace Aula1705_Camadas.Controllers
 {
     class AtividadesController
     {
-        public List<Atividade> ListaAtividades { get; set; }
-        
+        private static List<Atividade> ListaAtividades { get; set; }
+
+        public AtividadesController()
+        {
+            ListaAtividades = new List<Atividade>();
+        }
+
         //Salvar
         public void salvarAtividade(Atividade atividade)
         {
