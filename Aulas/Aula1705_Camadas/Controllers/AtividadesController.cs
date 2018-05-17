@@ -15,5 +15,11 @@ namespace Aula1705_Camadas.Controllers
         {
             ListaAtividades.Add(atividade);
         }
+
+        public List<Atividade> listarAtividades()
+        {
+            return ListaAtividades;
+        }
+
     }
 }
