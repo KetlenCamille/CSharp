@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula1005_POO", "Aula1005_Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula1405_Interfaces", "Aula1405_Interfaces\Aula1405_Interfaces.csproj", "{2F9F1F2C-3D0B-4729-85AE-A2A4143AF341}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula1705_Camadas", "Aula1705_Camadas\Aula1705_Camadas.csproj", "{6E16281B-BDCF-4473-966D-1A11AD1536BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F9F1F2C-3D0B-4729-85AE-A2A4143AF341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9F1F2C-3D0B-4729-85AE-A2A4143AF341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F9F1F2C-3D0B-4729-85AE-A2A4143AF341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E16281B-BDCF-4473-966D-1A11AD1536BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E16281B-BDCF-4473-966D-1A11AD1536BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E16281B-BDCF-4473-966D-1A11AD1536BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E16281B-BDCF-4473-966D-1A11AD1536BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -71,7 +71,6 @@ namespace Aula1405_Interfaces
 
             Console.WriteLine("Qtde rodas: " + c.Rodas.Count);
 
-
             Onibus o = new Onibus();
             o.Modelo = "3100";
 
