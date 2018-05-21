@@ -18,7 +18,8 @@ namespace Aula1705_Camadas.Views
             ListarAtividades = 2,
             BuscarAtividades = 3,
             EditarAtividade = 4,
-            ExcluirAtividade = 5
+            ExcluirAtividade = 5,
+            Sair = 0
         }
         public AtividadesView()
         {
@@ -26,9 +27,10 @@ namespace Aula1705_Camadas.Views
         }
         public void ExibirMenu()
         {
-            int opcao;
+            OpcoesMenu opcao = OpcoesMenu.Sair;
             do
             {
+                Console.Clear();
                 Console.WriteLine("======================");
                 Console.WriteLine("= Escolha uma opção =");
                 Console.WriteLine("= 1) Criar Atividade =");
@@ -39,8 +41,34 @@ namespace Aula1705_Camadas.Views
                 Console.WriteLine("= 0) Sair do Sistema =");
                 Console.WriteLine("=======================");
 
-                opcao = int.Parse(Console.ReadLine());
+                opcao = (OpcoesMenu) int.Parse(Console.ReadLine());
                 //return opcao;
+
+                switch (opcao)
+                {
+                    case OpcoesMenu.CriarAtividade:
+                        criarAtividade();
+                        break;
+                    case OpcoesMenu.ListarAtividades:
+                        listarAtividades();
+                        break;
+                    case OpcoesMenu.BuscarAtividades:
+                        buscarAtividades();
+                        break;
+                    case OpcoesMenu.EditarAtividade:
+                        editarAtividade();
+                        break;
+                    case OpcoesMenu.ExcluirAtividade:
+                        excluirAtividade();
+                        break;
+                    case OpcoesMenu.Sair:
+                        break;
+                    default:
+                        Console.WriteLine("OPÇÃO INVÁLIDA! Digite qualquer tecla para continuar");
+                        Console.ReadKey();
+                        break;
+                }
+                /*
                 switch (opcao)
                 {
                     case 1:
@@ -60,8 +88,8 @@ namespace Aula1705_Camadas.Views
                         break;
                     default:
                         break;
-                }
-            } while (opcao != 0);
+                }*/
+            } while (opcao != OpcoesMenu.Sair);
        }
             
 
