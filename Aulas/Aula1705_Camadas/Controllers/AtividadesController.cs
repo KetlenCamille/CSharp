@@ -67,5 +67,17 @@ namespace Aula1705_Camadas.Controllers
                 ListaAtividades.Remove(atividade);
             }
         }
+
+        public Atividade buscarAtividadePorNome(String atividadeNome)
+        {
+            foreach (Atividade atividade in ListaAtividades)
+            {
+                if(atividade.Nome == atividadeNome)
+                {
+                    return atividade;
+                }
+            }
+            return null;
+        }
     }
 }

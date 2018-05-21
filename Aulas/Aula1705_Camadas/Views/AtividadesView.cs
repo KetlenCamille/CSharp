@@ -19,6 +19,8 @@ namespace Aula1705_Camadas.Views
             BuscarAtividades = 3,
             EditarAtividade = 4,
             ExcluirAtividade = 5,
+            BuscarAtividadeNome = 6,
+            ListarAtividadesAtivosInativos = 7,
             Sair = 0
         }
         public AtividadesView()
@@ -35,9 +37,11 @@ namespace Aula1705_Camadas.Views
                 Console.WriteLine("= Escolha uma opção =");
                 Console.WriteLine("= 1) Criar Atividade =");
                 Console.WriteLine("= 2) Listar Atividades =");
-                Console.WriteLine("= 3) Buscar Atividade =");
+                Console.WriteLine("= 3) Buscar Atividade por ID=");
                 Console.WriteLine("= 4) Editar Atividade =");
                 Console.WriteLine("= 5) Excluir Atividade =");
+                Console.WriteLine("= 6) Buscar Atividade por Nome =");
+                Console.WriteLine("= 7) Listar Atividade (Ativos/Inativos) =");
                 Console.WriteLine("= 0) Sair do Sistema =");
                 Console.WriteLine("=======================");
 
@@ -60,6 +64,12 @@ namespace Aula1705_Camadas.Views
                         break;
                     case OpcoesMenu.ExcluirAtividade:
                         excluirAtividade();
+                        break;
+                    case OpcoesMenu.BuscarAtividadeNome:
+                        buscarAtividadesPorNome();
+                        break;
+                    case OpcoesMenu.ListarAtividadesAtivosInativos:
+                        listarAtividadesAtivosInativos();
                         break;
                     case OpcoesMenu.Sair:
                         break;
@@ -106,7 +116,10 @@ namespace Aula1705_Camadas.Views
             Console.Write("Digiste o nome da atividade: ");
             atividade.Nome = Console.ReadLine();
 
-            atividade.Ativo = true;
+            Console.WriteLine("Ativo? (S/N)");
+            atividade.Ativo = Console.ReadLine() == "S" ? true : false;
+
+            //string i = Console.ReadLine() == "ok" ? "acertou" : "errou";
             return atividade;
         }
 
@@ -132,7 +145,6 @@ namespace Aula1705_Camadas.Views
 
         public void buscarAtividades()
         {
-            AtividadesController atividadeController = new AtividadesController();
             Console.WriteLine("Digite o id da atividade");
             int id = int.Parse(Console.ReadLine());
 
@@ -169,6 +181,40 @@ namespace Aula1705_Camadas.Views
 
 
             atividadeController.excluirAtividade(idAtividade);
+        }
+
+        public void buscarAtividadesPorNome()
+        {
+            Console.WriteLine("Digite o nome da atividade");
+            string atividadeNome = Console.ReadLine();
+
+            Atividade atividade = atividadeController.buscarAtividadePorNome(atividadeNome);
+            if(atividade != null)
+            {
+                exibirDetalhesAtividade(atividade);
+            }
+            else
+            {
+                Console.WriteLine("Atividade não encontrada!");
+            }
+            Console.ReadKey();
+        }
+        public void listarAtividadesAtivosInativos()
+        {
+            Console.WriteLine("Deseja listar: 1 - Atividades Ativas");
+            Console.WriteLine("Deseja listar: 2 - Atividades Inativas");
+
+            bool op = Console.ReadLine() == "1" ? true : false;
+
+            foreach (Atividade atividade in atividadeController.listarAtividades())
+            {
+                if(atividade.Ativo == op)
+                {
+                    exibirDetalhesAtividade(atividade);
+                }
+            }
+            Console.WriteLine("Fim da Lista");
+            Console.ReadKey();
         }
     }
 }
