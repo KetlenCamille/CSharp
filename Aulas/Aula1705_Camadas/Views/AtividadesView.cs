@@ -10,6 +10,12 @@ namespace Aula1705_Camadas.Views
 {
     class AtividadesView
     {
+        AtividadesController atividadeController;
+
+        public AtividadesView()
+        {
+            atividadeController = new AtividadesController();
+        }
         public void ExibirMenu()
         {
             int opcao;
@@ -55,7 +61,6 @@ namespace Aula1705_Camadas.Views
         {
             Atividade atividade = obterDadosAtividade();
 
-            AtividadesController atividadeController = new AtividadesController();
             atividadeController.salvarAtividade(atividade);
         }
 
@@ -71,7 +76,6 @@ namespace Aula1705_Camadas.Views
 
         public void listarAtividades()
         {
-            AtividadesController atividadeController = new AtividadesController();
             //Cópia da lista (para evitar problemas)
             foreach (Atividade atividade in atividadeController.listarAtividades())
             {
@@ -117,7 +121,6 @@ namespace Aula1705_Camadas.Views
 
             Atividade atividadeAtualizada = obterDadosAtividade();
 
-            AtividadesController atividadeController = new AtividadesController();
             atividadeController.editarAtividade(idAtividade, atividadeAtualizada);
         }
 
@@ -128,7 +131,6 @@ namespace Aula1705_Camadas.Views
             Console.Write("Digite o ID da atividade que deseja excluir: ");
             int idAtividade = int.Parse(Console.ReadLine());
 
-            AtividadesController atividadeController = new AtividadesController();
 
             atividadeController.excluirAtividade(idAtividade);
         }
