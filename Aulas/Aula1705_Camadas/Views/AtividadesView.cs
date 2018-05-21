@@ -188,14 +188,9 @@ namespace Aula1705_Camadas.Views
             Console.WriteLine("Digite o nome da atividade");
             string atividadeNome = Console.ReadLine();
 
-            Atividade atividade = atividadeController.buscarAtividadePorNome(atividadeNome);
-            if(atividade != null)
+            foreach (Atividade atividade in atividadeController.buscarAtividadePorNome(atividadeNome))
             {
                 exibirDetalhesAtividade(atividade);
-            }
-            else
-            {
-                Console.WriteLine("Atividade não encontrada!");
             }
             Console.ReadKey();
         }

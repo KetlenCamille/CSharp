@@ -68,16 +68,17 @@ namespace Aula1705_Camadas.Controllers
             }
         }
 
-        public Atividade buscarAtividadePorNome(String atividadeNome)
+        public List<Atividade> buscarAtividadePorNome(String atividadeNome)
         {
+            List<Atividade> atividadesSelecionadas = new List<Atividade>();
             foreach (Atividade atividade in ListaAtividades)
             {
                 if(atividade.Nome == atividadeNome)
                 {
-                    return atividade;
+                    atividadesSelecionadas.Add(atividade);
                 }
             }
-            return null;
+            return atividadesSelecionadas;
         }
     }
 }
