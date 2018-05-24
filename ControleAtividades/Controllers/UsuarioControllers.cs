@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controllers.Base;
 
 namespace Controllers
 {
-    class UsuarioControllers
+    class UsuarioControllers : IBaseController<Usuario>
     {
         public List<Usuario> ListaUsuarios { get; set; }
 
-        public void SalvarUsuario (Usuario usuario)
+        public void Adicionar (Usuario usuario)
         {
             if(usuario != null)
             {
@@ -19,13 +20,7 @@ namespace Controllers
             }
         }
 
-
-        public List<Usuario> ListarUsuarios()
-        {
-            return ListaUsuarios;
-        }
-
-        public Usuario buscarPorId(int UsuarioId)
+        public Usuario BuscarPorId(int UsuarioId)
         {
             foreach (Usuario usuario in ListaUsuarios)
             {
@@ -35,6 +30,28 @@ namespace Controllers
                 }
             }
             return null;
+        }
+
+        public void Atualizar(int UsuarioId, Usuario UsuarioAtualizado)
+        {
+            Usuario UsuarioAntigo = BuscarPorId(UsuarioId);
+            
+            if(UsuarioAntigo != null)
+            {
+                UsuarioAntigo.UsuarioNome = UsuarioAtualizado.UsuarioNome;
+                UsuarioAntigo.UsuarioAtivo = UsuarioAtualizado.UsuarioAtivo;
+            }
+        }
+
+        public void Excluir(int UsuarioId)
+        {
+            foreach (Usuario usuario in ListaUsuarios)
+            {
+                if(usuario.UsuarioId == UsuarioId)
+                {
+                    ListaUsuarios.Remove(usuario);
+                }
+            }
         }
 
     }
