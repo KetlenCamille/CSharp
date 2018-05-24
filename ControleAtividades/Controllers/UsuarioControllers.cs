@@ -19,5 +19,13 @@ namespace Controllers
             }
         }
 
+
+        public List<Usuario> ListarUsuarios()
+        {
+            return ListaUsuarios;
+        }
+
+
+
     }
 }
