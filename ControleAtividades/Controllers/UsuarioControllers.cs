@@ -54,5 +54,23 @@ namespace Controllers
             }
         }
 
+        public IList<Usuario> ListarPorNome(string nome)
+        {
+            List<Usuario> listaUsuarioPorNome = new List<Usuario>();
+
+            foreach (Usuario usuario in ListaUsuarios)
+            {
+                if (usuario.UsuarioNome == nome)
+                {
+                    listaUsuarioPorNome.Add(usuario);
+                }
+            }
+            return listaUsuarioPorNome;
+        }
+
+        IList<Usuario> IBaseController<Usuario>.ListarTodos()
+        {
+            return ListaUsuarios;
+        }
     }
 }
