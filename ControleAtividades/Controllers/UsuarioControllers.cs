@@ -25,7 +25,17 @@ namespace Controllers
             return ListaUsuarios;
         }
 
-
+        public Usuario buscarPorId(int UsuarioId)
+        {
+            foreach (Usuario usuario in ListaUsuarios)
+            {
+                if (usuario.UsuarioId == UsuarioId)
+                {
+                    return usuario;
+                }
+            }
+            return null;
+        }
 
     }
 }
