@@ -58,7 +58,7 @@ namespace Controllers
 
         public IList<Atividade> ListarTodos()
         {
-            throw new NotImplementedException();
+            return contexto.Atividades.ToList();
         }
     }
 }
