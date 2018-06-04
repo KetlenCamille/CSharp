@@ -41,10 +41,11 @@ namespace Controllers
             if(atividade != null)
             {
                 contexto.Atividades.Remove(atividade);
-                contexto.Entry(atividade).
+
                 /* OU
-                
+                    contexto.Entry(atividade).State = System.Data.Entity.EntityState.Deleted;
                 */
+                contexto.SaveChanges();
             }
         }
 
@@ -60,7 +61,7 @@ namespace Controllers
 
             // LAMBDA
 
-            return contexto.Atividades.Where(a => a.AtividadeNome == nome).ToList();
+            return contexto.Atividades.Where(a => a.AtividadeNome.ToLower() == nome.ToLower()).ToList();
         }
 
         public IList<Atividade> ListarTodos()
