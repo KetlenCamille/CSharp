@@ -41,10 +41,12 @@ namespace Controllers
             if(atividade != null)
             {
                 contexto.Atividades.Remove(atividade);
-                contexto.Entry(atividade).
+    
                 /* OU
-                
+                    contexto.Entry(atividade).State = System.Data.Entity.EntityState.Deleted;
                 */
+
+                contexto.SaveChanges();
             }
         }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controllers.Base;
+using Controllers.DAL;
 
 namespace Controllers
 {
@@ -12,65 +13,46 @@ namespace Controllers
     {
         public List<Usuario> ListaUsuarios { get; set; }
 
+        Contexto contexto = new Contexto();
+
         public void Adicionar (Usuario usuario)
         {
             if(usuario != null)
             {
-                ListaUsuarios.Add(usuario);
+                contexto.Usuarios.Add(usuario);
+                contexto.SaveChanges();
             }
         }
 
         public Usuario BuscarPorId(int UsuarioId)
         {
-            foreach (Usuario usuario in ListaUsuarios)
-            {
-                if (usuario.UsuarioId == UsuarioId)
-                {
-                    return usuario;
-                }
-            }
-            return null;
+            return contexto.Usuarios.Find(UsuarioId);
         }
 
-        public void Atualizar(int UsuarioId, Usuario UsuarioAtualizado)
+        public void Atualizar(int UsuarioId, Usuario usuario)
         {
-            Usuario UsuarioAntigo = BuscarPorId(UsuarioId);
-            
-            if(UsuarioAntigo != null)
-            {
-                UsuarioAntigo.UsuarioNome = UsuarioAtualizado.UsuarioNome;
-                UsuarioAntigo.UsuarioAtivo = UsuarioAtualizado.UsuarioAtivo;
-            }
+            contexto.Entry(usuario).State =
+                System.Data.Entity.EntityState.Modified;
+
+            contexto.SaveChanges();
         }
 
         public void Excluir(int UsuarioId)
         {
-            foreach (Usuario usuario in ListaUsuarios)
-            {
-                if(usuario.UsuarioId == UsuarioId)
-                {
-                    ListaUsuarios.Remove(usuario);
-                }
-            }
+            Usuario usuario = BuscarPorId(UsuarioId);
+            contexto.Usuarios.Remove(usuario);
+
+            contexto.SaveChanges();
         }
 
         public IList<Usuario> ListarPorNome(string nome)
         {
-            List<Usuario> listaUsuarioPorNome = new List<Usuario>();
-
-            foreach (Usuario usuario in ListaUsuarios)
-            {
-                if (usuario.UsuarioNome == nome)
-                {
-                    listaUsuarioPorNome.Add(usuario);
-                }
-            }
-            return listaUsuarioPorNome;
+            return contexto.Usuarios.Where(a => a.UsuarioNome == nome).ToList();
         }
 
         IList<Usuario> IBaseController<Usuario>.ListarTodos()
         {
-            return ListaUsuarios;
+            return contexto.Usuarios.ToList();
         }
     }
 }
