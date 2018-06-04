@@ -43,7 +43,17 @@ namespace Controllers
 
         public IList<Atividade> ListarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            /* LINQ
+            var atividadesComNome = from atividade in contexto.Atividades
+                        where atividade.AtividadeNome == nome
+                        select atividade;
+
+            return atividadesComNome.ToList();
+            */
+
+            // LAMBDA
+
+            return contexto.Atividades.Where(a => a.AtividadeNome == nome).ToList();
         }
 
         public IList<Atividade> ListarTodos()
