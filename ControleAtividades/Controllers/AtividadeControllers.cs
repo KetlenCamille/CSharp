@@ -29,7 +29,7 @@ namespace Controllers
 
         public Atividade BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return contexto.Atividades.Find(id);
         }
 
         public void Excluir(int id)
