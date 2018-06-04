@@ -41,6 +41,10 @@ namespace Controllers
             if(atividade != null)
             {
                 contexto.Atividades.Remove(atividade);
+                contexto.Entry(atividade).
+                /* OU
+                
+                */
             }
         }
 
