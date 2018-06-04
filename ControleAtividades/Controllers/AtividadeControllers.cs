@@ -22,9 +22,12 @@ namespace Controllers
             }
         }
 
-        public void Atualizar(int id, Atividade entity)
+        public void Atualizar(int id, Atividade atividade)
         {
-            throw new NotImplementedException();
+            contexto.Entry(atividade).State =
+                System.Data.Entity.EntityState.Modified;
+
+            contexto.SaveChanges();
         }
 
         public Atividade BuscarPorId(int id)
