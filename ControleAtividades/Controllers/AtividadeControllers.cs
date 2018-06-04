@@ -32,9 +32,13 @@ namespace Controllers
             return contexto.Atividades.Find(id);
         }
 
-        public void Excluir(int id)
+        public void Excluir(int idAtividade)
         {
-            throw new NotImplementedException();
+            Atividade atividade = BuscarPorId(idAtividade);
+            if(atividade != null)
+            {
+                contexto.Atividades.Remove(atividade);
+            }
         }
 
         public IList<Atividade> ListarPorNome(string nome)
