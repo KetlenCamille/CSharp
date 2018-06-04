@@ -10,8 +10,6 @@ namespace Controllers
 {
     class CategoriaControllers : IBaseController<Categoria>
     {
-        public static List<Categoria> {get; set;}
-
         public void Adicionar(Categoria entity)
         {
             throw new NotImplementedException();
